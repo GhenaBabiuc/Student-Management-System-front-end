@@ -1,8 +1,55 @@
 #studentTable {
     border-collapse: collapse;
     border: 1px solid black;
+    width: 1200px;
 }
 
-#studentTable th,td {
-    border: 1px solid grey;
+#studentTable th,
+td {
+    border: 1px solid black;
+    color: white;
+}
+
+#studentTable th {
+    background-color: rgba(0, 0, 0, 0.685);
+}
+
+#evenRow {
+    background-color: rgba(0, 0, 0, 0.555);
+}
+
+#notAnEvenRow {
+    background-color: rgba(0, 0, 0, 0.411);
+}
+
+#studentTable tr:hover {
+    background-color: rgba(0, 0, 0, 0.158);
+}
+
+#greetingMessage {
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 150px;
+    color: white;
+}
+
+#greetingMessage:hover {
+    color: rgba(255, 255, 255, 0.397);
+    text-decoration: line-through;
+}
+
+#line {
+    height: 3px;
+    background-color: black;
+    margin: 5px 0 5px 0;
+}
+
+#table {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+body {
+    background-image: url(../img/Background-img.jpg);
 }
