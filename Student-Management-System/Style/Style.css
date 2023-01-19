@@ -1,0 +1,8 @@
+#studentTable {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+#studentTable th,td {
+    border: 1px solid grey;
+}
