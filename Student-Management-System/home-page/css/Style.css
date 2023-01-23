@@ -53,3 +53,15 @@ td {
 body {
     background-image: url(../img/Background-img.jpg);
 }
+
+#navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: white;
+}

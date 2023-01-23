@@ -1,0 +1,22 @@
+#navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+#photo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#photo img {
+    width: 50%;
+    margin: 0 auto;
+}
