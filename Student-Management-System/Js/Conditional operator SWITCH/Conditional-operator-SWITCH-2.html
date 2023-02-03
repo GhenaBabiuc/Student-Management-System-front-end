@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button onclick="showDay()">Show Day</button>
+    <div id="output"></div>
+
+    <script>
+        function showDay() {
+            let n = parseInt(document.getElementById("input").value);
+
+            switch (n) {
+                case 1:
+                    document.getElementById("output").innerHTML = "Monday";
+                    break;
+                case 2:
+                    document.getElementById("output").innerHTML = "Tuesday";
+                    break;
+                case 3:
+                    document.getElementById("output").innerHTML = "Wednesday";
+                    break;
+                case 4:
+                    document.getElementById("output").innerHTML = "Thursday";
+                    break;
+                case 5:
+                    document.getElementById("output").innerHTML = "Friday";
+                    break;
+                case 6:
+                    document.getElementById("output").innerHTML = "Saturday";
+                    break;
+                case 7:
+                    document.getElementById("output").innerHTML = "Sunday";
+                    break;
+                default:
+                    document.getElementById("output").innerHTML = "Invalid day";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
