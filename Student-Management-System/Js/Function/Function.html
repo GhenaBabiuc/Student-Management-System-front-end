@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day of the Week</title>
+</head>
+
+<body>
+    <input type="text" id="dayNumberInput">
+    <button onclick="displayDay()">Submit</button>
+    <p id="dayDisplay"></p>
+
+    <script>
+        function displayDay() {
+            let dayNumber = parseInt(document.getElementById("dayNumberInput").value);
+            let day = determineDayOfTheWeek(dayNumber);
+            document.getElementById("dayDisplay").innerHTML = day;
+        }
+
+        function determineDayOfTheWeek(dayNumber) {
+            switch (dayNumber) {
+                case 1:
+                    return "Monday";
+                    break;
+                case 2:
+                    return "Tuesday";
+                    break;
+                case 3:
+                    return "Wednesday";
+                    break;
+                case 4:
+                    return "Thursday";
+                    break;
+                case 5:
+                    return "Friday";
+                    break;
+                case 6:
+                    return "Saturday";
+                    break;
+                case 7:
+                    return "Sunday";
+                    break;
+                default:
+                    return "Invalid day";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
