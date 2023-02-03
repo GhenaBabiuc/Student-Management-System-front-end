@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>First name:</td>
+            <td><input type="text" id="firstName"></td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td><input type="text" id="lastName"></td>
+        </tr>
+        <tr>
+            <td>Average score:</td>
+            <td><input type="text" id="averageScore"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" value="Add Data" onclick="addData()"></td>
+        </tr>
+    </table>
+    <br />
+    <table>
+        <tr>
+            <td>First name:</td>
+            <td id="firstNameDisplay"></td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td id="lastNameDisplay"></td>
+        </tr>
+        <tr>
+            <td>Average score:</td>
+            <td id="averageScoreDisplay"></td>
+        </tr>
+    </table>
+
+    <script>
+        let student = {};
+        function addData() {
+            student.firstName = document.getElementById("firstName").value;
+            student.lastName = document.getElementById("lastName").value;
+            student.averageScore = document.getElementById("averageScore").value;
+
+            document.getElementById("firstNameDisplay").innerHTML = student.firstName;
+            document.getElementById("lastNameDisplay").innerHTML = student.lastName;
+            document.getElementById("averageScoreDisplay").innerHTML = student.averageScore;
+        }
+    </script>
+</body>
+
+</html>
