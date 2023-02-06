@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <script>
+        var students = [
+            { firstName: "Albert", lastName: "Einstein", averageScore: 6.0 },
+            { firstName: "Martin Luther", lastName: "King Jr.", averageScore: 4.9 },
+            { firstName: "Mahatma", lastName: "Gandhi", averageScore: 7.6 },
+            { firstName: "Isaac", lastName: "Newton", averageScore: 4.4 },
+            { firstName: "Steve", lastName: "Jobs", averageScore: 8.3 },
+            { firstName: "Marie", lastName: "Curie", averageScore: 5.5 },
+            { firstName: "Nelson", lastName: "Mandela", averageScore: 4.0 }
+        ];
+
+        var above5 = [];
+        var below5 = [];
+
+        for (var student of students) {
+            if (student.averageScore >= 5) {
+                above5.push(student);
+            } else {
+                below5.push(student);
+            }
+        }
+
+        console.log("Above 5: ", above5);
+        console.log("Below 5: ", below5);
+    </script>
+</body>
+
+</html>
