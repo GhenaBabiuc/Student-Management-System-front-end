@@ -13,7 +13,7 @@ td {
     background-color: white;
 }
 
-table{
+table {
     width: 100%;
 }
 
@@ -126,4 +126,20 @@ input:checked+label {
     label {
         padding: 15px;
     }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
 }
