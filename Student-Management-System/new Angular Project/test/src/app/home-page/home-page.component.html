@@ -1,0 +1,59 @@
+<h1>Student Managment System</h1>
+
+<main>
+
+    <input id="tab1" type="radio" name="tabs" checked>
+    <label for="tab1">Student</label>
+
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2">Discipline</label>
+
+    <input id="tab3" type="radio" name="tabs">
+    <label for="tab3">Marks</label>
+
+
+    <section id="content1">
+        <table>
+            <tr>
+                <th colspan="6">Student</th>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Date of birth</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let person of students">
+                <td>{{person.firstName}}</td>
+                <td>{{person.lastName}}</td>
+                <td>{{person.email}}</td>
+                <td>{{person.gender}}</td>
+                <td>{{person.dateOfBirth}}</td>
+                <td> </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="content2">
+        <table>
+            <tr>
+                <th colspan="2">Discipline</th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let discipline of disciplines">
+                <td>{{discipline.name}}</td>
+                <td> </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="content3">
+
+    </section>
+
+</main>
