@@ -48,8 +48,7 @@ p {
 }
 
 main {
-    min-width: 320px;
-    max-width: 800px;
+    max-width: 1000px;
     padding: 50px;
     margin: 0 auto;
     background: #fff;
@@ -142,4 +141,74 @@ select {
     border-radius: 5px;
     border: 1px solid #ccc;
     outline: none;
+}
+
+.table-name th {
+    background-color: #91b5e4;
+    height: 30px;
+}
+
+.table-header th {
+    background-color: rgba(128, 128, 128, 0.432);
+    height: 40px;
+}
+
+.edit-btn,
+.delete-btn,
+.open-btn,
+.add-student-btn,
+.delete-all-btn,
+.add-discipline-btn,
+.delete-all-discipline-btn {
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    font-size: 24px;
+    color: #333;
+    margin: 0 10px;
+    height: 30px;
+    width: 30px;
+    height: inherit;
+}
+
+.edit-btn:hover,
+.delete-btn:hover,
+.open-btn:hover,
+.add-student-btn:hover,
+.delete-all-btn:hover,
+.add-discipline-btn:hover,
+.delete-all-discipline-btn:hover {
+    color: #666;
+}
+
+.action-row {
+    width: 150px;
+    height: 40px;
+}
+
+.action-row2 {
+    width: 100px;
+    height: 40px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+#btn-add-marks {
+    background-color: #83e286;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+#btn-add-marks:hover {
+    background-color: #4CAF50;
 }

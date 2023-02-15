@@ -14,40 +14,79 @@
 
     <section id="content1">
         <table>
-            <tr>
-                <th colspan="6">Student</th>
-            </tr>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Gender</th>
-                <th>Date of birth</th>
-                <th>Action</th>
-            </tr>
+            <thead>
+                <tr class="table-name">
+                    <th colspan="6">Students</th>
+                </tr>
+                <tr class="table-header">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Date of birth</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
             <tr *ngFor="let student of students">
                 <td>{{student.firstName}}</td>
                 <td>{{student.lastName}}</td>
                 <td>{{student.email}}</td>
                 <td>{{student.gender}}</td>
                 <td>{{student.dateOfBirth}}</td>
-                <td> </td>
+                <td class="action-row">
+                    <div class="button-container">
+                        <button class="edit-btn">
+                            /
+                        </button>
+                        <button class="delete-btn">
+                            X
+                        </button>
+                        <button class="open-btn">
+                            O
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="6">
+                    <div class="button-container">
+                        <button class="add-student-btn">+</button>
+                        <button class="delete-all-btn">-</button>
+                    </div>
+                </th>
             </tr>
         </table>
     </section>
 
     <section id="content2">
         <table>
-            <tr>
+            <tr class="table-name">
                 <th colspan="2">Discipline</th>
             </tr>
-            <tr>
+            <tr class="table-header">
                 <th>Name</th>
                 <th>Action</th>
             </tr>
             <tr *ngFor="let discipline of disciplines">
                 <td>{{discipline.name}}</td>
-                <td> </td>
+                <td class="action-row2">
+                    <div class="button-container">
+                        <button class="edit-btn">
+                            /
+                        </button>
+                        <button class="delete-btn">
+                            X
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="6">
+                    <div class="button-container">
+                        <button class="add-discipline-btn">+</button>
+                        <button class="delete-all-discipline-btn">-</button>
+                    </div>
+                </th>
             </tr>
         </table>
     </section>
@@ -59,12 +98,10 @@
                 <option *ngFor="let student of students" value="{{student.firstName}}">{{student.firstName}}
                     {{student.lastName}}</option>
             </select>
-            <br><br>
             <label for="disciplines">Choose a discipline:</label>
             <select id="disciplines" name="disciplines">
                 <option *ngFor="let discipline of disciplines" value="{{discipline.name}}">{{discipline.name}}</option>
             </select>
-            <br><br>
             <label for="marks">Choose a mark:</label>
             <select id="marks" name="marks">
                 <option value="1">1</option>
@@ -78,8 +115,8 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select>
-            <br><br>
-            <input type="submit" value="Submit">
+            <br>
+            <button id="btn-add-marks">Add mark</button>
         </form>
 
     </section>
