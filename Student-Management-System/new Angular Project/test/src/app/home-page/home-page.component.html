@@ -23,7 +23,6 @@
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Gender</th>
-                    <th>Date of birth</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -32,13 +31,12 @@
                 <td>{{student.lastName}}</td>
                 <td>{{student.email}}</td>
                 <td>{{student.gender}}</td>
-                <td>{{student.dateOfBirth}}</td>
                 <td class="action-row">
                     <div class="button-container">
                         <button class="edit-btn">
                             /
                         </button>
-                        <button class="delete-btn">
+                        <button class="delete-btn" (click)="deleteStudent(student)">
                             X
                         </button>
                         <button class="open-btn">
@@ -118,7 +116,6 @@
             <br>
             <button id="btn-add-marks">Add mark</button>
         </form>
-
     </section>
 
 </main>
