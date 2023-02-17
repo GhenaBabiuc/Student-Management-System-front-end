@@ -1,0 +1,60 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div id="zatemnenie">
+        <div id="okno">
+            <form>
+                <label>First Name:</label>
+                <input type="text" [(ngModel)]="addedStudent.firstName" name="firstName">
+                <label>Last Name:</label>
+                <input type="text" [(ngModel)]="addedStudent.lastName" name="lastName">
+                <label>Email:</label>
+                <input type="email" [(ngModel)]="addedStudent.email" name="email">
+                <label>Gender:</label>
+                <input type="text" [(ngModel)]="addedStudent.gender" name="gender">
+                <button (click)="add()">Save</button>
+            </form>
+            <br>
+            <a href="#" class="close">Закрыть окно</a>
+        </div>
+    </div>
+
+    <a href="#zatemnenie">Add</a>
+
+
+    <div class="container">
+        <table class="table_adaptive">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students">
+                    <td>{{student.firstName}}</td>
+                    <td>{{student.lastName}}</td>
+                    <td>{{student.email}}</td>
+                    <td>{{student.gender}}</td>
+                    <td class="action-row">
+                        <button class="edit-button">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                        <button class="delete-button" (click)="deleteStudentById(student.id)">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                        <button class="search-button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

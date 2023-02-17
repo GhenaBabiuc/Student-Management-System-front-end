@@ -1,0 +1,29 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <table class="table_adaptive">
+            <thead>
+                <tr>
+                    <th>Disciplines</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let discipline of disciplines">
+                    <td>{{discipline.name}}</td>
+                    <td class="action-row">
+                        <button class="edit-button">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                        <button class="delete-button" (click)="deleteDisciplineById(discipline.id)">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

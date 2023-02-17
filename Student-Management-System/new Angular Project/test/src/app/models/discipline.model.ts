@@ -5,6 +5,5 @@ export class Discipline {
     constructor(id: number, name: String) {
         this.id = id;
         this.name = name;
-
     }
 }
