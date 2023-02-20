@@ -4,8 +4,8 @@
 
 <body>
 
-    <div id="zatemnenie">
-        <div id="okno">
+    <div id="studentAddForm">
+        <div id="window">
             <form>
                 <label>First Name:</label>
                 <input type="text" [(ngModel)]="addedStudent.firstName" name="firstName">
@@ -15,17 +15,36 @@
                 <input type="email" [(ngModel)]="addedStudent.email" name="email">
                 <label>Gender:</label>
                 <input type="text" [(ngModel)]="addedStudent.gender" name="gender">
-                <button (click)="add()">Save</button>
+                <button (click)="add()">Add</button>
             </form>
             <br>
-            <a href="#" class="close">Закрыть окно</a>
+            <a href="#" class="close">X</a>
         </div>
     </div>
 
-    <a href="#zatemnenie">Add</a>
-
+    <div id="studentEditForm">
+        <div id="window">
+            <form>
+                <label>First Name:</label>
+                <input type="text" [(ngModel)]="editeStudent.firstName" name="firstName">
+                <label>Last Name:</label>
+                <input type="text" [(ngModel)]="editeStudent.lastName" name="lastName">
+                <label>Email:</label>
+                <input type="email" [(ngModel)]="editeStudent.email" name="email">
+                <label>Gender:</label>
+                <input type="text" [(ngModel)]="editeStudent.gender" name="gender">
+                <button (click)="editStudent()">Save</button>
+            </form>
+            <br>
+            <a href="#" class="close">X</a>
+        </div>
+    </div>
 
     <div class="container">
+        <div class="button-bar">
+            <a href="#studentAddForm" class="addStudent-btn">Add Student</a>
+            <button class="deleteStudents-btn">Delete all students</button>
+        </div>
         <table class="table_adaptive">
             <thead>
                 <tr>
@@ -43,15 +62,15 @@
                     <td>{{student.email}}</td>
                     <td>{{student.gender}}</td>
                     <td class="action-row">
-                        <button class="edit-button">
+                        <a class="btn-edit" href="#studentEditForm" (click)="editedStudent(student)">
                             <i class="fa fa-pencil"></i>
-                        </button>
-                        <button class="delete-button" (click)="deleteStudentById(student.id)">
+                        </a>
+                        <a class="delete-button" (click)="deleteStudentById(student.id)">
                             <i class="fa fa-trash"></i>
-                        </button>
-                        <button class="search-button">
+                        </a>
+                        <a class="search-button">
                             <i class="fa fa-search"></i>
-                        </button>
+                        </a>
                     </td>
                 </tr>
             </tbody>

@@ -34,16 +34,39 @@ export class HomePageComponent {
     });
   }
 
+  updateStudent(student: Student) {
+    this.https.updateStudent(student.id, student).subscribe(res => {
+      console.log(res);
+      this.getStudents();
+    })
+  }
 
   addedStudent: Student = new Student(0, '', '', '', '');
-  showAddForm = false;
-
-  showForm() {
-    this.showAddForm = true;
-  }
+  editeStudent: Student = new Student(0, '', '', '', '');
 
   add() {
-    this.showAddForm = false;
     this.addStudent(this.addedStudent);
+    this.addedStudent = {
+      id: 0,
+      firstName: '',
+      lastName: '',
+      email: '',
+      gender: ''
+    };
   }
+
+  editedStudent(student: Student) {
+    this.editeStudent = {
+      id: student.id,
+      firstName: student.firstName,
+      lastName: student.lastName,
+      email: student.email,
+      gender: student.gender
+    };
+  }
+
+  editStudent() {
+    this.updateStudent(this.editeStudent)
+  }
+
 }
