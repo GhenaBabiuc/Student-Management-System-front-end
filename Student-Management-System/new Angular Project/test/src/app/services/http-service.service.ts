@@ -38,22 +38,22 @@ export class HttpServiceService {
     return this.http.delete(SERVER_URL + '/students/delete');
   }
 
-  getDisciplinesWithMarksById(id: number) {
+  getDisciplinesWithMarksById(id: any) {
     return this.http.get<Student>(SERVER_URL + "/students/disciplines-with-marks/" + id);
   }
 
-  getStudentDisciplinesById(id: number) {
+  getStudentDisciplinesById(id: any) {
     return this.http.get<Discipline[]>(SERVER_URL + "/students/disciplines/" + id);
   }
 
-  addMark(studentId: number, disciplineId: number, mark: Mark) {
+  addMark(studentId: any, disciplineId: any, mark: Mark) {
     const params = new HttpParams()
       .set('studentId', studentId.toString())
       .set('disciplineId', disciplineId.toString());
     return this.http.post(SERVER_URL + '/students/add-mark', mark, { params });
   }
 
-  addStudentToDiscipline(studentId: number, disciplineId: number) {
+  addStudentToDiscipline(studentId: any, disciplineId: any) {
     const params = new HttpParams()
       .set('studentId', studentId.toString())
       .set('disciplineId', disciplineId.toString());
@@ -64,11 +64,11 @@ export class HttpServiceService {
     return this.http.get(SERVER_URL + '/disciplines')
   }
 
-  updateDiscipline(id: number, discipline: Discipline) {
+  updateDiscipline(id: any, discipline: Discipline) {
     return this.http.put<Discipline>(SERVER_URL + '/disciplines/update/' + id, discipline);
   }
 
-  deleteDisciplineById(id: number) {
+  deleteDisciplineById(id: any) {
     return this.http.delete<string>(SERVER_URL + '/disciplines/delete/' + id);
   }
 

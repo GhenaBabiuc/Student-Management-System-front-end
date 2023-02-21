@@ -1,6 +1,7 @@
-table.table_adaptive {
+table.table_adaptive,
+table.table_adaptive_mark {
     display: table;
-    width: 1000px !important;
+    width: 1000px;
     table-layout: fixed !important;
     margin: 0 auto;
     border-collapse: collapse;
@@ -10,34 +11,45 @@ table.table_adaptive {
     margin-top: 10px;
 }
 
-table.table_adaptive caption {
+table.table_adaptive_mark {
+    width: 400px !important;
+}
+
+table.table_adaptive caption,
+table.table_adaptive_mark caption {
     caption-side: top;
     color: #5f5f5f;
     text-align: center;
     font-weight: bold;
 }
 
-table.table_adaptive tr {
+table.table_adaptive tr,
+table.table_adaptive_mark tr {
     padding: 5px;
 }
 
-table.table_adaptive tr:hover {
+table.table_adaptive tr:hover,
+table.table_adaptive_mark:hover {
     background: #71c2c2;
     color: #fff;
 }
 
-table.table_adaptive tr:hover a {
+table.table_adaptive tr:hover a,
+table.table_adaptive_mark tr:hover a {
     color: #fff;
     border-bottom: 1px dashed #fff;
 }
 
 table.table_adaptive th,
-table.table_adaptive td {
+table.table_adaptive_mark th,
+table.table_adaptive td,
+table.table_adaptive_mark td {
     padding: 10px;
     text-align: center;
 }
 
-table.table_adaptive th {
+table.table_adaptive th,
+table.table_adaptive_mark th {
     font-size: 14px;
     letter-spacing: 1px;
     color: whitesmoke;
@@ -46,7 +58,8 @@ table.table_adaptive th {
     border: 0px !important;
 }
 
-table.table_adaptive td {
+table.table_adaptive td,
+table.table_adaptive_mark td {
     border-bottom: 1px solid #ededed !important;
     border-top: 0px !important;
     border-left: 0px !important;
@@ -60,79 +73,36 @@ table.table_adaptive td {
     hyphens: auto;
 }
 
-table.table_adaptive td:first-child {
+table.table_adaptive td:first-child,
+table.table_adaptive_mark td:first-child {
     text-align: left;
 }
 
-table.table_adaptive td.justify_text {
+table.table_adaptive td.justify_text,
+table.table_adaptive_mark td.justify_text {
     text-align: justify;
 }
 
-table.table_adaptive td.left_text {
+table.table_adaptive td.left_text,
+table.table_adaptive_mark td.left_text {
     text-align: left;
 }
 
-table.table_adaptive td.right_text {
+table.table_adaptive td.right_text,
+table.table_adaptive_mark td.right_text {
     text-align: right;
 }
 
-table.table_adaptive tr.subhead {
+table.table_adaptive tr.subhead,
+table.table_adaptive_mark tr.subhead {
     background: #f1f7f7;
     font-weight: bold;
 }
 
-table.table_adaptive tr.subhead:hover {
+table.table_adaptive tr.subhead:hover,
+table.table_adaptive_mark tr.subhead:hover {
     background: #24c5c5;
     color: #fff;
-}
-
-@media screen and (max-width: 800px) {
-    table.table_adaptive {
-        border: 0 !important;
-    }
-
-    table.table_adaptive thead {
-        display: none;
-    }
-
-    table.table_adaptive tr {
-        margin-bottom: 10px;
-        display: block;
-        border: 1px solid #ededed !important;
-    }
-
-    table.table_adaptive td {
-        display: block;
-        text-align: right;
-        font-size: 13px;
-        border-bottom: 1px dotted #ededed !important;
-    }
-
-    table.table_adaptive td.justify_text {
-        text-align: right;
-    }
-
-    table.table_adaptive td.left_text {
-        text-align: right;
-    }
-
-    table.table_adaptive td:first-child {
-        text-align: right;
-    }
-
-    table.table_adaptive td.right_text {
-        text-align: right;
-    }
-
-    table.table_adaptive td:last-child {
-        border-bottom: 0 !important;
-    }
-
-    table.table_adaptive td:before {
-        content: attr(data-label);
-        float: left;
-        font-weight: bold;
-    }
 }
 
 .btn-edit i {
@@ -173,7 +143,8 @@ table.table_adaptive tr.subhead:hover {
 }
 
 #studentAddForm,
-#studentEditForm {
+#studentEditForm,
+#displayMarks {
     background: rgba(102, 102, 102, 0.5);
     width: 100%;
     height: 100%;
@@ -197,7 +168,8 @@ table.table_adaptive tr.subhead:hover {
 }
 
 #studentAddForm:target,
-#studentEditForm:target {
+#studentEditForm:target,
+#displayMarks:target {
     display: block;
 }
 
@@ -264,4 +236,11 @@ form button {
 .button-bar {
     display: flex;
     gap: 10px;
+}
+
+#listMarks {
+    list-style: none;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 0;
 }

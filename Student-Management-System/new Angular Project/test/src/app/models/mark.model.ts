@@ -1,9 +1,9 @@
 export class Mark {
-    id: number;
-    mark: String;
+    id: Number | null;
+    mark: Number | null;
 
-    constructor(id: number, mark: String) {
-        this.id = id;
-        this.mark = mark;
+    constructor(id?: Number, mark?: Number) {
+        this.id = id || null;
+        this.mark = mark || null;
     }
 }

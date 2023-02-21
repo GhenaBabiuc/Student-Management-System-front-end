@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Student } from '../../models/student.model';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -20,7 +21,7 @@ export class HomePageComponent {
     });
   }
 
-  deleteStudentById(id: number) {
+  deleteStudentById(id: Number | null) {
     this.https.deleteStudentById(id).subscribe(res => {
       console.log(res)
       this.getStudents()
@@ -41,32 +42,35 @@ export class HomePageComponent {
     })
   }
 
-  addedStudent: Student = new Student(0, '', '', '', '');
-  editeStudent: Student = new Student(0, '', '', '', '');
+  addedStudent: Student = new Student();
+  editeStudent: Student = new Student();
 
   add() {
     this.addStudent(this.addedStudent);
-    this.addedStudent = {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      email: '',
-      gender: ''
-    };
+    this.addedStudent = new Student();
   }
 
   editedStudent(student: Student) {
-    this.editeStudent = {
-      id: student.id,
-      firstName: student.firstName,
-      lastName: student.lastName,
-      email: student.email,
-      gender: student.gender
-    };
+    this.editeStudent = student;
   }
 
   editStudent() {
     this.updateStudent(this.editeStudent)
+  }
+
+  deleteAllStudents() {
+    this.https.deleteAllStudents().subscribe(res => {
+      console.log(res);
+      this.getStudents();
+    })
+  }
+
+  marksStudent: Student = new Student();
+
+  getDisciplinesWithMarksById(id: any) {
+    this.https.getDisciplinesWithMarksById(id).subscribe((data: any) => {
+      this.marksStudent = data as Student;
+    })
   }
 
 }

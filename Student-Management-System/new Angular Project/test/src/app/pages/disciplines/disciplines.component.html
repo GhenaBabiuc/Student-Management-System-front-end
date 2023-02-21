@@ -3,7 +3,23 @@
 </head>
 
 <body>
+    <div id="disciplineEditForm">
+        <div id="window">
+            <form>
+                <label>Name:</label>
+                <input type="text" [(ngModel)]="editeDiscipline.name" name="name">
+                <button (click)="editDiscipline()">Save</button>
+            </form>
+            <br>
+            <a href="/disciplines/#" class="close">X</a>
+        </div>
+    </div>
+
     <div class="container">
+        <div class="button-bar">
+            <a class="addDiscipline-btn">Add discipline</a>
+            <button class="deleteDisciplines-btn">Delete all disciplines</button>
+        </div>
         <table class="table_adaptive">
             <thead>
                 <tr>
@@ -15,12 +31,13 @@
                 <tr *ngFor="let discipline of disciplines">
                     <td>{{discipline.name}}</td>
                     <td class="action-row">
-                        <button class="edit-button">
+                        <a class="btn-edit" href="/disciplines#disciplineEditForm"
+                            (click)="editedDiscipline(discipline)">
                             <i class="fa fa-pencil"></i>
-                        </button>
-                        <button class="delete-button" (click)="deleteDisciplineById(discipline.id)">
+                        </a>
+                        <a class="delete-button" (click)="deleteDisciplineById(discipline.id)">
                             <i class="fa fa-trash"></i>
-                        </button>
+                        </a>
                     </td>
                 </tr>
             </tbody>

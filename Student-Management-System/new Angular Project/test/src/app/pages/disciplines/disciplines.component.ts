@@ -11,7 +11,7 @@ export class DisciplinesComponent {
   disciplines: Discipline[] = [];
 
   constructor(private https: HttpServiceService) {
-    this.getDisciplines()
+    this.getDisciplines();
   }
 
   getDisciplines() {
@@ -20,10 +20,27 @@ export class DisciplinesComponent {
     });
   }
 
-  deleteDisciplineById(id: number) {
+  deleteDisciplineById(id: Number | null) {
     this.https.deleteDisciplineById(id).subscribe(res => {
-      console.log(res)
+      console.log(res);
+      this.getDisciplines();
+    })
+  }
+
+  updateDiscipline(discipline: Discipline) {
+    this.https.updateDiscipline(discipline.id, discipline).subscribe(res => {
+      console.log(res);
       this.getDisciplines()
     })
+  }
+
+  editeDiscipline: Discipline = new Discipline();
+
+  editedDiscipline(discipline: Discipline) {
+    this.editeDiscipline = discipline;
+  }
+
+  editDiscipline() {
+    this.updateDiscipline(this.editeDiscipline)
   }
 }

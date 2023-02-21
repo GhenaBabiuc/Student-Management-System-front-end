@@ -15,7 +15,7 @@
                 <input type="email" [(ngModel)]="addedStudent.email" name="email">
                 <label>Gender:</label>
                 <input type="text" [(ngModel)]="addedStudent.gender" name="gender">
-                <button (click)="add()">Add</button>
+                <a (click)="add()" class="addStudent-btn" href="#">Add</a>
             </form>
             <br>
             <a href="#" class="close">X</a>
@@ -33,8 +33,35 @@
                 <input type="email" [(ngModel)]="editeStudent.email" name="email">
                 <label>Gender:</label>
                 <input type="text" [(ngModel)]="editeStudent.gender" name="gender">
-                <button (click)="editStudent()">Save</button>
+                <a (click)="editStudent()" href="#" class="addStudent-btn">Save</a>
             </form>
+            <br>
+            <a href="#" class="close" (click)="getStudents()">X</a>
+        </div>
+    </div>
+
+    <div id="displayMarks">
+        <div id="window">
+            <table class="table_adaptive_mark">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Marks</th>
+                        <th>Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let discipline of marksStudent.disciplines">
+                        <td>{{discipline.name}}</td>
+                        <td>
+                            <ul *ngFor="let mark of discipline.marks" id="listMarks">
+                                <li>{{mark.mark}},</li>
+                            </ul>
+                        </td>
+                        <td>{{discipline.avg}}</td>
+                    </tr>
+                </tbody>
+            </table>
             <br>
             <a href="#" class="close">X</a>
         </div>
@@ -43,7 +70,7 @@
     <div class="container">
         <div class="button-bar">
             <a href="#studentAddForm" class="addStudent-btn">Add Student</a>
-            <button class="deleteStudents-btn">Delete all students</button>
+            <button class="deleteStudents-btn" (click)="deleteAllStudents()">Delete all students</button>
         </div>
         <table class="table_adaptive">
             <thead>
@@ -68,7 +95,7 @@
                         <a class="delete-button" (click)="deleteStudentById(student.id)">
                             <i class="fa fa-trash"></i>
                         </a>
-                        <a class="search-button">
+                        <a class="search-button" href="#displayMarks" (click)="getDisciplinesWithMarksById(student.id)">
                             <i class="fa fa-search"></i>
                         </a>
                     </td>
