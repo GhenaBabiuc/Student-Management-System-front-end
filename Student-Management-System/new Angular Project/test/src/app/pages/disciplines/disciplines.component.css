@@ -1,6 +1,6 @@
 table.table_adaptive {
     display: table;
-    width: 600px !important;
+    width: 600px;
     table-layout: fixed !important;
     margin: 0 auto;
     border-collapse: collapse;
@@ -86,55 +86,6 @@ table.table_adaptive tr.subhead:hover {
     color: #fff;
 }
 
-@media screen and (max-width: 800px) {
-    table.table_adaptive {
-        border: 0 !important;
-    }
-
-    table.table_adaptive thead {
-        display: none;
-    }
-
-    table.table_adaptive tr {
-        margin-bottom: 10px;
-        display: block;
-        border: 1px solid #ededed !important;
-    }
-
-    table.table_adaptive td {
-        display: block;
-        text-align: right;
-        font-size: 13px;
-        border-bottom: 1px dotted #ededed !important;
-    }
-
-    table.table_adaptive td.justify_text {
-        text-align: right;
-    }
-
-    table.table_adaptive td.left_text {
-        text-align: right;
-    }
-
-    table.table_adaptive td:first-child {
-        text-align: right;
-    }
-
-    table.table_adaptive td.right_text {
-        text-align: right;
-    }
-
-    table.table_adaptive td:last-child {
-        border-bottom: 0 !important;
-    }
-
-    table.table_adaptive td:before {
-        content: attr(data-label);
-        float: left;
-        font-weight: bold;
-    }
-}
-
 .btn-edit i {
     color: blue;
 }
@@ -166,7 +117,8 @@ table.table_adaptive tr.subhead:hover {
 }
 
 #disciplineAddForm,
-#disciplineEditForm {
+#disciplineEditForm,
+#disciplineMapForm {
     background: rgba(102, 102, 102, 0.5);
     width: 100%;
     height: 100%;
@@ -176,21 +128,28 @@ table.table_adaptive tr.subhead:hover {
     display: none;
 }
 
-#window {
+#window,
+#windowMap {
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: 400px;
+    height: 120px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+#windowMap {
+    height: 250px !important;
+}
+
 #disciplineAddForm:target,
-#disciplineEditForm:target {
+#disciplineEditForm:target,
+#disciplineMapForm:target {
     display: block;
 }
 
@@ -230,10 +189,11 @@ form button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 75px;
 }
 
-.addDiscipline-btn {
+.addDiscipline-btn,
+.mapDiscipline-btn {
     background-color: #19a5a5;
     color: #fff;
     border: none;
@@ -241,6 +201,10 @@ form button {
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.mapDiscipline-btn {
+    background-color: #745f03 !important;
 }
 
 .deleteDisciplines-btn {
@@ -256,4 +220,45 @@ form button {
 .button-bar {
     display: flex;
     gap: 10px;
+}
+
+#listMarks {
+    list-style: none;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 0;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-controls ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-controls li {
+    margin: 0 5px;
+}
+
+.pagination-controls li a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+}
+
+.pagination-controls li a.active {
+    background-color: #ccc;
 }

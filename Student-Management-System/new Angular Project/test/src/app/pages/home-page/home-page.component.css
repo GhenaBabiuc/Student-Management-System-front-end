@@ -1,7 +1,7 @@
 table.table_adaptive,
 table.table_adaptive_mark {
     display: table;
-    width: 1000px;
+    width: 1100px;
     table-layout: fixed !important;
     margin: 0 auto;
     border-collapse: collapse;
@@ -161,6 +161,7 @@ table.table_adaptive_mark tr.subhead:hover {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: 400px;
+    height: 320px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -210,7 +211,7 @@ form button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 75px;
 }
 
 .addStudent-btn {
@@ -243,4 +244,38 @@ form button {
     display: inline-block;
     margin-right: 5px;
     padding: 0;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-controls ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-controls li {
+    margin: 0 5px;
+}
+
+.pagination-controls li a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+}
+
+.pagination-controls li a.active {
+    background-color: #ccc;
 }

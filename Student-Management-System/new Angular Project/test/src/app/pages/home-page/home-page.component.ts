@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Student } from '../../models/student.model';
 import { HttpServiceService } from 'src/app/services/http-service.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePageComponent {
   students: Student[] = [];
+  p: Number = 1;
 
   constructor(private https: HttpServiceService) {
     this.getStudents()

@@ -9,6 +9,7 @@ import { DisciplinesComponent } from './pages/disciplines/disciplines.component'
 import { MarksComponent } from './pages/marks/marks.component';
 import { NavbarComponent } from './blocks/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule

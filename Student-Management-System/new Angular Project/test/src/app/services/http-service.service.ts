@@ -61,7 +61,11 @@ export class HttpServiceService {
   }
 
   getDisciplines() {
-    return this.http.get(SERVER_URL + '/disciplines')
+    return this.http.get(SERVER_URL + '/disciplines');
+  }
+
+  addDiscipline(discipline: Discipline) {
+    return this.http.post(SERVER_URL + '/disciplines/add', discipline);
   }
 
   updateDiscipline(id: any, discipline: Discipline) {

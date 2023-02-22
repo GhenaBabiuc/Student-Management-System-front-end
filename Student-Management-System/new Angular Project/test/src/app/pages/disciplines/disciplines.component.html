@@ -8,17 +8,62 @@
             <form>
                 <label>Name:</label>
                 <input type="text" [(ngModel)]="editeDiscipline.name" name="name">
-                <button (click)="editDiscipline()">Save</button>
+                <a (click)="editDiscipline()" href="/disciplines" class="addDiscipline-btn">Save</a>
             </form>
             <br>
-            <a href="/disciplines/#" class="close">X</a>
+            <a href="/disciplines" class="close">X</a>
+        </div>
+    </div>
+
+    <div id="disciplineAddForm">
+        <div id="window">
+            <form>
+                <label>Name:</label>
+                <input type="text" [(ngModel)]="addedDiscipline.name" name="name">
+                <a (click)="add()" href="/disciplines" class="addDiscipline-btn">Add</a>
+            </form>
+            <br>
+            <a href="/disciplines" class="close">X</a>
+        </div>
+    </div>
+
+    <div id="disciplineMapForm">
+        <div id="windowMap">
+            <form>
+                <label for="students">Choose a student:</label>
+                <select id="students" name="students" [(ngModel)]="studentIdToMap">
+                    <option value="{{student.id}}" *ngFor="let student of students">{{student.firstName}}
+                        {{student.lastName}}</option>
+                </select>
+
+                <label for="disciplines">Choose a discipline:</label>
+                <select id="disciplines" name="disciplines" [(ngModel)]="disciplineIdToMap">
+                    <option value="{{discipline.id}}" *ngFor="let discipline of disciplines">
+                        {{discipline.name}}
+                        <!-- <ng-container *ngFor="let disciplineStudent of student.disciplines">
+                            <ng-container *ngIf="discipline.id==disciplineStudent.id">
+                                
+                                (not assigned)
+                            </ng-container>
+                        </ng-container> -->
+                    </option>
+                </select>
+
+                <br><br>
+                <a href="/disciplines" class="mapDiscipline-btn"
+                    (click)="addStudentToDiscipline(studentIdToMap, disciplineIdToMap)">Map</a>
+            </form>
+            <br>
+            <a href="/disciplines" class="close">X</a>
         </div>
     </div>
 
     <div class="container">
         <div class="button-bar">
-            <a class="addDiscipline-btn">Add discipline</a>
-            <button class="deleteDisciplines-btn">Delete all disciplines</button>
+            <a class="addDiscipline-btn" href="/disciplines/#disciplineAddForm">Add discipline</a>
+            <button class="deleteDisciplines-btn" (click)="deleteAllDisciplines()">Delete all disciplines</button>
+            <a class="mapDiscipline-btn" href="/disciplines/#disciplineMapForm">Map
+                discipline</a>
         </div>
         <table class="table_adaptive">
             <thead>
@@ -28,7 +73,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let discipline of disciplines">
+                <tr *ngFor="let discipline of disciplines | paginate: { itemsPerPage: 5, currentPage: p.toString() }">
                     <td>{{discipline.name}}</td>
                     <td class="action-row">
                         <a class="btn-edit" href="/disciplines#disciplineEditForm"
@@ -43,4 +88,8 @@
             </tbody>
         </table>
     </div>
+    <div class="pagination-wrapper">
+        <pagination-controls class=" pagination-controls" (pageChange)="p = $event"></pagination-controls>
+    </div>
+
 </body>

@@ -14,7 +14,9 @@
                 <label>Email:</label>
                 <input type="email" [(ngModel)]="addedStudent.email" name="email">
                 <label>Gender:</label>
-                <input type="text" [(ngModel)]="addedStudent.gender" name="gender">
+                <input type="radio" value="male" name="gender" id="male" [(ngModel)]="addedStudent.gender">Male
+                <input type="radio" value="female" name="gender" id="female" [(ngModel)]="addedStudent.gender">Female
+                <br><br>
                 <a (click)="add()" class="addStudent-btn" href="#">Add</a>
             </form>
             <br>
@@ -32,7 +34,9 @@
                 <label>Email:</label>
                 <input type="email" [(ngModel)]="editeStudent.email" name="email">
                 <label>Gender:</label>
-                <input type="text" [(ngModel)]="editeStudent.gender" name="gender">
+                <input type="radio" value="male" name="gender" id="male" [(ngModel)]="editeStudent.gender">Male
+                <input type="radio" value="female" name="gender" id="female" [(ngModel)]="editeStudent.gender">Female
+                <br><br>
                 <a (click)="editStudent()" href="#" class="addStudent-btn">Save</a>
             </form>
             <br>
@@ -83,7 +87,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let student of students">
+                <tr *ngFor="let student of students | paginate: { itemsPerPage: 10, currentPage: p.toString() }">
                     <td>{{student.firstName}}</td>
                     <td>{{student.lastName}}</td>
                     <td>{{student.email}}</td>
@@ -102,5 +106,8 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="pagination-wrapper">
+        <pagination-controls class=" pagination-controls" (pageChange)="p = $event"></pagination-controls>
     </div>
 </body>
