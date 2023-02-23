@@ -135,7 +135,7 @@ table.table_adaptive tr.subhead:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 400px;
+    width: 300px;
     height: 120px;
     position: absolute;
     top: 50%;
@@ -144,7 +144,7 @@ table.table_adaptive tr.subhead:hover {
 }
 
 #windowMap {
-    height: 250px !important;
+    height: 190px !important;
 }
 
 #disciplineAddForm:target,
@@ -261,4 +261,34 @@ form button {
 
 .pagination-controls li a.active {
     background-color: #ccc;
+}
+
+select {
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3e8e41;
 }

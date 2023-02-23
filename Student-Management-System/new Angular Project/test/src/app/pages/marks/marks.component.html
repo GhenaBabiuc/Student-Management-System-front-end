@@ -1,1 +1,36 @@
-<p>marks works!</p>
+<div class="form-container">
+    <form>
+        <label for="students">Choose a student:</label>
+        <select id="students" name="students" [(ngModel)]="studentId" (change)="getDisciplinesForStudent(studentId)">
+            <option value="" disabled selected>Select a student</option>
+            <option value="{{student.id}}" *ngFor="let student of students">{{student.firstName}} {{student.lastName}}
+            </option>
+        </select>
+
+        <label for="discipline">Choose a discipline:</label>
+        <select id="discipline" name="discipline" [(ngModel)]="disciplineId">
+            <option value="" disabled selected>Select a discipline</option>
+            <option value="{{discipline.id}}" *ngFor="let discipline of disciplines">
+                {{discipline.name}}
+            </option>
+        </select>
+
+        <label for="mark">Choose a mark:</label>
+        <select id="mark" name="mark" [(ngModel)]="mark.mark">
+            <option value="" disabled selected>Select a mark</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+
+        <br><br>
+        <a class="addMark-btn" (click)="confirmAddMark(studentId, disciplineId, mark)">Add</a>
+    </form>
+</div>

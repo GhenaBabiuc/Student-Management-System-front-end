@@ -55,7 +55,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let discipline of marksStudent.disciplines">
+                    <tr
+                        *ngFor="let discipline of marksStudent.disciplines | paginate: { itemsPerPage: 3, currentPage: pages.toString() }">
                         <td>{{discipline.name}}</td>
                         <td>
                             <ul *ngFor="let mark of discipline.marks" id="listMarks">
@@ -66,6 +67,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="pagination-wrapper">
+                <pagination-controls class="pagination-controls" (pageChange)="pages = $event"></pagination-controls>
+            </div>
             <br>
             <a href="#" class="close">X</a>
         </div>
@@ -73,8 +77,8 @@
 
     <div class="container">
         <div class="button-bar">
-            <a href="#studentAddForm" class="addStudent-btn">Add Student</a>
-            <button class="deleteStudents-btn" (click)="deleteAllStudents()">Delete all students</button>
+            <a href="#studentAddForm" class="addStudent-btn" (click)="confirmAddStudent()">Add Student</a>
+            <button class="deleteStudents-btn" (click)="confirmDelete()">Delete all students</button>
         </div>
         <table class="table_adaptive">
             <thead>
@@ -87,16 +91,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let student of students | paginate: { itemsPerPage: 10, currentPage: p.toString() }">
+                <tr *ngFor="let student of students | paginate: { itemsPerPage: 9, currentPage: p.toString() }">
                     <td>{{student.firstName}}</td>
                     <td>{{student.lastName}}</td>
                     <td>{{student.email}}</td>
                     <td>{{student.gender}}</td>
                     <td class="action-row">
-                        <a class="btn-edit" href="#studentEditForm" (click)="editedStudent(student)">
+                        <a class="btn-edit" href="#studentEditForm" (click)="confirmEditStudent(student)">
                             <i class="fa fa-pencil"></i>
                         </a>
-                        <a class="delete-button" (click)="deleteStudentById(student.id)">
+                        <a class="delete-button" (click)="confirmDeleteStudent(student)">
                             <i class="fa fa-trash"></i>
                         </a>
                         <a class="search-button" href="#displayMarks" (click)="getDisciplinesWithMarksById(student.id)">
