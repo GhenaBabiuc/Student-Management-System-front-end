@@ -109,9 +109,17 @@ export class DisciplinesComponent {
   }
 
   confirmAddDiscipline(): void {
-    const confirmation = confirm("Are you sure you want to add a new discipline?");
-    if (!confirmation) {
-      this.router.navigateByUrl('/disciplines');
+    if (!this.addedDiscipline.name) {
+      alert('Please fill all required fields');
+      this.router.navigateByUrl('#disciplineAddForm');
+      return;
+    } else {
+      const confirmation = confirm("Are you sure you want to add a new discipline?");
+      if (confirmation) {
+        this.add();
+      } else {
+        this.router.navigateByUrl('/disciplines');
+      }
     }
   }
 
@@ -131,10 +139,10 @@ export class DisciplinesComponent {
     }
   }
 
-  confirmEdit(discipline: Discipline): void {
+  confirmEdit() {
     const confirmation = confirm("Are you sure you want to edit this discipline?");
     if (confirmation) {
-      this.editedDiscipline(discipline);
+      this.editDiscipline();
     } else {
       this.router.navigateByUrl('/disciplines');
     }

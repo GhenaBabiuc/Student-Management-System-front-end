@@ -8,7 +8,7 @@
             <form>
                 <label>Name:</label>
                 <input type="text" [(ngModel)]="editeDiscipline.name" name="name">
-                <a (click)="editDiscipline()" href="/disciplines" class="addDiscipline-btn">Save</a>
+                <a (click)="confirmEdit()" href="/disciplines" class="addDiscipline-btn">Save</a>
             </form>
             <br>
             <a href="/disciplines" class="close">X</a>
@@ -19,8 +19,8 @@
         <div id="window">
             <form>
                 <label>Name:</label>
-                <input type="text" [(ngModel)]="addedDiscipline.name" name="name">
-                <a (click)="add()" href="/disciplines" class="addDiscipline-btn">Add</a>
+                <input type="text" [(ngModel)]="addedDiscipline.name" name="name" required>
+                <a (click)="confirmAddDiscipline()" href="/disciplines" class="addDiscipline-btn">Add</a>
             </form>
             <br>
             <a href="/disciplines" class="close">X</a>
@@ -57,11 +57,11 @@
 
     <div class="container">
         <div class="button-bar">
-            <a class="addDiscipline-btn" href="/disciplines/#disciplineAddForm" (click)="confirmAddDiscipline()">Add
+            <a class="addDiscipline-btn" href="/disciplines/#disciplineAddForm">Add
                 discipline</a>
             <button class="deleteDisciplines-btn" (click)="confirmDeleteAllDisciplines()">Delete all
                 disciplines</button>
-            <a class="mapDiscipline-btn" href="/disciplines/#disciplineMapForm" (click)="confirmMapDiscipline()">Map
+            <a class="mapDiscipline-btn" href="/disciplines/#disciplineMapForm">Map
                 discipline</a>
         </div>
         <table class="table_adaptive">
@@ -75,7 +75,8 @@
                 <tr *ngFor="let discipline of disciplines | paginate: { itemsPerPage: 5, currentPage: p.toString() }">
                     <td>{{discipline.name}}</td>
                     <td class="action-row">
-                        <a class="btn-edit" href="/disciplines#disciplineEditForm" (click)="confirmEdit(discipline)">
+                        <a class="btn-edit" href="/disciplines#disciplineEditForm"
+                            (click)="editedDiscipline(discipline)">
                             <i class="fa fa-pencil"></i>
                         </a>
                         <a class="delete-button" (click)="confirmDelete(discipline.id)">

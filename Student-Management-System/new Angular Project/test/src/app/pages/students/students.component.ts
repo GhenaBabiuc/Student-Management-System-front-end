@@ -4,14 +4,14 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  selector: 'app-students',
+  templateUrl: './students.component.html',
+  styleUrls: ['./students.component.css']
 })
-export class HomePageComponent {
+export class StudentsComponent {
   students: Student[] = [];
-  p: Number = 1;
-  pages: Number=1;
+  page: Number = 1;
+  pages: Number = 1;
   router: any;
 
   constructor(private https: HttpServiceService) {
@@ -27,7 +27,7 @@ export class HomePageComponent {
   deleteStudentById(id: Number | null) {
     this.https.deleteStudentById(id).subscribe(res => {
       console.log(res)
-      this.getStudents()
+      this.getStudents();
     })
   }
 
@@ -84,18 +84,28 @@ export class HomePageComponent {
   }
 
   confirmAddStudent(): void {
-    const confirmation = confirm("Are you sure you want to add a new student?");
-    if (!confirmation) {
-      this.router.navigateByUrl('#');
+    if (!this.addedStudent.firstName || !this.addedStudent.lastName || !this.addedStudent.email || !this.addedStudent.gender) {
+      alert('Please fill all required fields');
+      this.router.navigateByUrl('/students/#studentAddForm');
+      return;
+    } else {
+      const confirmation = confirm("Are you sure you want to add a new student?");
+      if (confirmation) {
+        this.add();
+      } else {
+        this.addedStudent = new Student();
+        this.router.navigateByUrl('/students/#studentAddForm');
+      }
     }
   }
 
-  confirmEditStudent(student: Student): void {
-    const confirmation = confirm(`Are you sure you want to edit the student ${student.firstName} ${student.lastName}?`);
+  confirmEditStudent() {
+    const confirmation = confirm(`Are you sure you want to edit the student?`);
     if (confirmation) {
-      this.editedStudent(student);
+      this.editStudent();
     } else {
-      this.router.navigateByUrl('#');
+      this.getStudents();
+      this.router.navigateByUrl('/students/#studentAddForm');
     }
   }
 

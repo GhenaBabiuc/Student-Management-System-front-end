@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-image: url('https://tadsystem.net/wp-content/uploads/2017/09/learning.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+}
